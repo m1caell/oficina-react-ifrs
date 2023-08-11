@@ -3,13 +3,17 @@ import Image from './components/Image.jsx';
 import Form from './components/form/Form.jsx';
 
 import './App.css';
+import { useState } from 'react';
 
 function App() {
-  async function getImageFromCode(code) {
-    const fetchResult = await fetch(`https://http.cat/${code}`);
-    const result = await fetchResult.blob();
+  const [srcImage, setSrcImage] = useState('');
 
-    console.log(result);
+  async function getImageFromCode(code) {
+    if (code) {
+      setSrcImage(`https://http.cat/${code}`);
+    } else {
+      setSrcImage('https://via.placeholder.com/400');
+    }
   }
 
   return (
@@ -19,7 +23,7 @@ function App() {
         <Form executeOnSubmit={getImageFromCode} />
       </header>
       <main className="main">
-        <Image />
+        <Image src={srcImage} />
       </main>
     </div>
   );
