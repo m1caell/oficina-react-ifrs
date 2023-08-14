@@ -1,5 +1,7 @@
 import { useState } from 'react';
 
+import './Form.css';
+
 export default function Form({ executeOnSubmit }) {
   const [formValues, setFormValues] = useState({
     code: '',
@@ -21,7 +23,7 @@ export default function Form({ executeOnSubmit }) {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="form">
       <Input
         label="Código"
         name="code"
@@ -53,5 +55,5 @@ function Input({ label, name, value, onChange }) {
 }
 
 function Button({ children }) {
-  return <button>{children}</button>;
+  return <button className="button">{children}</button>;
 }

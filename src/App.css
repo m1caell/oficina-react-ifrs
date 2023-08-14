@@ -1,0 +1,24 @@
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.main-title {
+  max-width: 300px;
+  text-align: center;
+}
+
+.header {
+  margin-bottom: 68px;
+}
+
+.image {
+  width: 100%;
+  max-width: 750px;
+  display: block;
+}
